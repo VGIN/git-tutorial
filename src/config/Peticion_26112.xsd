@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSpy v2007 sp2 (http://www.altova.com) by Antonio (Antonio) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:element name="XML_Peticion">
+		<xs:annotation>
+			<xs:documentation>Peticion de Alta de cargo y devoluciones de Terceros Postpago (26112)</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="DatosPeticion"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DatosPeticion">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Msisdn"/>
+				<xs:element ref="Accion"/>
+				<xs:element ref="Entidad"/>
+				<xs:element ref="FechaDescarga"/>
+				<xs:element ref="Importe"/>
+				<xs:element ref="IdTransaccion"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Msisdn">
+		<xs:annotation>
+			<xs:documentation>MSISDN de la linea</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="30"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Accion">
+		<xs:annotation>
+			<xs:documentation>C para cargo y R para refund</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="2"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Entidad">
+		<xs:annotation>
+			<xs:documentation>Entidad proveedora de la aplicacion descargada</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="100"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="FechaDescarga">
+		<xs:annotation>
+			<xs:documentation>Fecha y hora de la descarga. Tendra el formato DD/MM/YYYY HH24:MM:SS</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="21"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Importe">
+		<xs:annotation>
+			<xs:documentation>Importe de la descarga </xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="100"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="IdTransaccion">
+		<xs:annotation>
+			<xs:documentation>Identificador de la transacción asociada a la descarga</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="50"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>

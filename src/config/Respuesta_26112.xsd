@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSpy v2007 sp2 (http://www.altova.com) by Antonio (Antonio) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="XML_Respuesta">
+		<xs:annotation>
+			<xs:documentation>Respuesta de Alta de cargo y devoluciones de Terceros Postpago (26112)</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:all>
+				<xs:element ref="Error" minOccurs="0"/>
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Error">
+		<xs:annotation>
+			<xs:documentation>Error en la transacción</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:all>
+				<xs:element ref="Codigo"/>
+				<xs:element ref="Descripcion"/>
+				<xs:element ref="Sistema"/>
+				<xs:element ref="Tipo"/>
+				<xs:element ref="TimeStamp"/>
+				<xs:element ref="IdHost"/>
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Codigo">
+		<xs:annotation>
+			<xs:documentation>Código del error</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="15"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Descripcion">
+		<xs:annotation>
+			<xs:documentation>Descripción del error</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="500"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Sistema">
+		<xs:annotation>
+			<xs:documentation>Sistema en el que se ha producido el error</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="30"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Tipo">
+		<xs:annotation>
+			<xs:documentation>Tipo del error (1-RV, 2-Adaptador, 3-Aplicación)</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="30"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="TimeStamp">
+		<xs:annotation>
+			<xs:documentation>Momento en que ocurrió el error. Debe ser la hora en que se detectó, no en la que se creó o envió en mensaje de error. Campo no requerido. Es una cadena de caracteres. El formato será: YYYY-MM-DDThh:mm:ss[.f][TZ]</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="50"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="IdHost">
+		<xs:annotation>
+			<xs:documentation>Host ID (dirección IP) de la máquina donde el error se detectó por primera vez. Campo no requerido. Es una cadena de caracteres, con formato de dirección IP</xs:documentation>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="15"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>
