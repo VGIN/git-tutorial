@@ -30,8 +30,7 @@ public class GenerateXML {
 		//Entidad proveedora de la aplicación descargada
 		datosPeticion.setEntidad("ENTIDAD");
 		//Aplicación descargada
-		
-		
+				
 		//Fecha hora de la descarga/refund.‘DD/MM/YYYY HH24:MM:SS’.
 		datosPeticion.setFechaDescarga("");
 		//Importe de la descarga. Será >=0 si ACCION = ‘C’ y <=0 si ACCION = ‘R’. 
